@@ -40,3 +40,7 @@ Other flags can be ignored.
 # Performance:
 On my system i am able to scan 65000 ports in 14-17 seconds.
 Script uses multithreading, and sets up timeout.
+# ToDo:
+1. Virtual host scan
+2. Vulnerability scan
+3. Firewall check
