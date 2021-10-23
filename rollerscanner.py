@@ -3,7 +3,7 @@ import socket
 import os
 import subprocess
 import sys
-import modules/censys
+import modules.censys as censys
 import psutil
 import time
 from colorama import Fore, Back, Style
@@ -29,6 +29,10 @@ if("--port" in sys.argv):
 		port=port.split("-")
 		end=int(port[1])
 		start=int(port[0])
+		ports=list(range(start, end))
+	elif("," in port):
+		ports=port.split(",")
+		ports = list(map(int, ports))
 elif("-p" in sys.argv):
 	indexofport=sys.argv.index("-p")
 	port=sys.argv[indexofport+1]
@@ -36,6 +40,10 @@ elif("-p" in sys.argv):
 		port=port.split("-")
 		end=int(port[1])
 		start=int(port[0])
+		ports=list(range(start, end))
+	elif("," in port):
+		ports=port.split(",")
+		ports = list(map(int, ports))
 else:
 	start=1
 	end=60000
@@ -50,7 +58,6 @@ if("-c" in sys.argv):
 response=os.system("ping -c 1 " + target)
 processes=[]
 nmapdone={}
-ports=list(range(start, end))
 if (response==0):
 	print("[", Fore.LIGHTCYAN_EX+"^"+Style.RESET_ALL, "]", Fore.YELLOW+target+Style.RESET_ALL, Fore.GREEN+"is UP"+Style.RESET_ALL)
 if (response!=0):
