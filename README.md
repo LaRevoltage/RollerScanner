@@ -37,7 +37,7 @@ Other flags can be ignored.
 
 ```--nmapsv``` runs ```nmap -sv``` on every opened port to get possible version, it will take longer yhan censys but it is more accurate.
 
-```--port``` can help you to specify ports to scan.
+```--port``` can help you to specify ports to scan, you can enter a range(1-65000), or enter ports threw ","(23,80,443)
 # Performance:
 On my system i am able to scan 65000 ports in 14-17 seconds.
 Script uses multithreading, and sets up timeout.
