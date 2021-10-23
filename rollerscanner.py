@@ -45,8 +45,7 @@ elif("-p" in sys.argv):
         ports = port.split(",")
         ports = list(map(int, ports))
 else:
-    start = 1
-    end = 60000
+    ports=list(range(1, 65000))
 if("--nmapsv" in sys.argv):
     choise = "1"
 elif("-nsv" in sys.argv):
