@@ -45,3 +45,5 @@ Script uses multithreading, and sets up timeout.
 1. Virtual host scan
 2. Vulnerability scan
 3. Firewall check
+4. TCP SYN Scan
+5. Costume TCP/IP stack
