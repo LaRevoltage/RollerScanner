@@ -4,6 +4,7 @@ import os
 import subprocess
 import sys
 import modules.censys as censys
+import modules.wafmeow as wafmeow
 import psutil
 import time
 from colorama import Fore, Back, Style
@@ -14,6 +15,8 @@ if("--help" in sys.argv):
     print("--censys (-c) — scrap data from censys, fastet method to gain info")
     print("--port (-p) — specify port range for scan, by default 1-60 000")
     print("--nmapsv (-nsv) — get service version using nmap")
+    print("--https — activate web mode, use if you are scanning an https website")
+    print("--http — activate web mode, use if you are scanning an http website")
     exit()
 if("--target" in sys.argv):
     indexoftarget = sys.argv.index("--target")
@@ -54,6 +57,10 @@ if("--censys" in sys.argv):
     choise = "2"
 if("-c" in sys.argv):
     choise = "2"
+if("--http" in sys.argv):
+    scheme = "http://"
+elif("--https" in sys.argv):
+    scheme = "https://"
 response = os.system("ping -c 1 " + target)
 processes = []
 nmapdone = {}
@@ -147,8 +154,8 @@ if(choise == "2"):
             Style.RESET_ALL))
     target = adresses[addrint]
     censys.SearchByIp(target)
-
-
+if(scheme=="https://" or scheme=="http://"):
+    wafmeow.wafsearch(target,scheme)
 def checkprocess():
     for proc in processes:
         if psutil.pid_exists(proc):
