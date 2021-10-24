@@ -1,11 +1,4 @@
 psutil
-concurrent.futures
-subprocess
-os
-socket
-sys
-time
 colorama
 requests
-re
 bs4
