@@ -11,11 +11,6 @@ import re
 import sys
 from collections import defaultdict
 from optparse import OptionParser
-from wafw00f.lib.asciiarts import *
-from wafw00f import __version__, __license__
-from wafw00f.manager import load_plugins
-from wafw00f.wafprio import wafdetectionsprio
-from wafw00f.lib.evillib import urlParser, waftoolsengine, def_headers
 from colorama import Fore, Back, Style
 
 class WAFW00F(waftoolsengine):
