@@ -1,10 +1,4 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-'''
-Copyright (C) 2020, WAFW00F Developers.
-See the LICENSE file for copying permission.
-'''
-# For keeping python2 support for now
+
 from __future__ import print_function
 
 import csv
