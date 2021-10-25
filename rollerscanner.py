@@ -9,6 +9,7 @@ import psutil
 import time
 from colorama import Fore, Back, Style
 choise = "0"
+scheme=""
 if("--help" in sys.argv):
     print("Usage: python3 rollerscan.py --target [target]")
     print("Additional flags:")
