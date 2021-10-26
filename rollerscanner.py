@@ -7,7 +7,7 @@ import modules.censys as censys
 import modules.wafmeow as wafmeow
 import psutil
 import time
-from colorama import Fore, Back, Style
+from colorama import Fore, Style
 choise = "0"
 targetcensys = ""
 scheme = ""
