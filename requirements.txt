@@ -2,3 +2,4 @@ psutil
 colorama
 requests
 bs4
+wafw00f
