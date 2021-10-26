@@ -106,7 +106,7 @@ n = int(
         Style.RESET_ALL +
         "]" +
         Fore.BLUE +
-        " How many threads you need?(default: 5000): " +
+        " How many threads you need?: " +
         Style.RESET_ALL))
 print("[", Fore.LIGHTCYAN_EX + "&" + Style.RESET_ALL, "]",
       Fore.BLUE + "Starting Scan!" + Style.RESET_ALL)
