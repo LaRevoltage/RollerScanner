@@ -48,3 +48,7 @@ Script uses multithreading, and sets up timeout.
 4. TCP SYN Scan
 5. Costume TCP/IP stack
 6. Auto-tunning
+
+# Donation:
+I am 13 years old, so it would be nice if you donated)
+BTC: ```3DZixgdtjEhkdvmxugUeWw8rmJEhr8A5WS```
