@@ -7,11 +7,9 @@ import modules.censys as censys
 import modules.wafmeow as wafmeow
 import psutil
 import time
-from colorama import Fore, Style
+from colorama import Fore, Back, Style
 choise = "0"
-targetcensys = ""
-scheme = ""
-addr = "0"
+scheme=""
 if("--help" in sys.argv):
     print("Usage: python3 rollerscan.py --target [target]")
     print("Additional flags:")
@@ -51,7 +49,7 @@ elif("-p" in sys.argv):
         ports = port.split(",")
         ports = list(map(int, ports))
 else:
-    ports = list(range(1, 65000))
+    ports=list(range(1, 65000))
 if("--nmapsv" in sys.argv):
     choise = "1"
 elif("-nsv" in sys.argv):
@@ -134,10 +132,10 @@ def portscan(port):
             Style.RESET_ALL)
         if choise == "1":
             process = subprocess.Popen(
-                f'''nmap -sV {target} -p {port} -Pn -T5 --max-retries=0''', shell=True)
+                f'''nmap -sV {target} -p {port} -Pn''', shell=True)
             processes.append(process.pid)
         con.close()
-    except socket.error:
+    except Exception as e:
         pass
 
 
@@ -151,19 +149,17 @@ if(choise == "2"):
         print(Fore.YELLOW + str(adresses.index(el)) + Style.RESET_ALL +
               ": " + Fore.GREEN + el + Style.RESET_ALL)
     try:
-        addr = int(
+        addrint = int(
             input(
                 Fore.BLUE +
-                "Censys got those hosts, which would you like to scrap:? " +
+                "Censys got those hosts, which would you like to scrap(Enter for pinged IP):? " +
                 Style.RESET_ALL))
-        targecensys = adresses[addr]
-    except Exception as e:
-        targetcensys == socket.gethostbyname(target)
-    censys.SearchByIp(targetcensys)
-if(scheme == "https://" or scheme == "http://"):
-    wafmeow.wafsearch(target, scheme)
-
-
+        target = adresses[addrint]
+    except:
+        socket.gethostbyname(target)
+    censys.SearchByIp(target)
+if(scheme=="https://" or scheme=="http://"):
+    wafmeow.wafsearch(target,scheme)
 def checkprocess():
     for proc in processes:
         if psutil.pid_exists(proc):
